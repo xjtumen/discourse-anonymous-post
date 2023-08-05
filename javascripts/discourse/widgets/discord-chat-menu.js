@@ -20,7 +20,7 @@ createWidget("anonymouspost-chat-menu", {
         try {
             var res = router.currentURL.match(/\/t\/(.*?)\/(\w+)/);
             if (res && res[2] > 0) {
-                replyURL = replyURLbase + res[2] + "/" +  document.title
+                replyURL = replyURLbase + window.location.hostname + "/" + res[2] + "/" +  document.title
             } else {
                 allowReply = false;
                 replyURL = replyURLbase;
@@ -41,7 +41,7 @@ createWidget("anonymouspost-chat-menu", {
                 h("iframe", {
                     src: replyURL,
                     sandbox:
-                        "allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts",
+                        "allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-forms",
                     width: "350",
                     height: "500",
                     allowtransparency: "true",
