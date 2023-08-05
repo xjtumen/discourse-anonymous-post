@@ -10,7 +10,8 @@ createWidget("anonymouspost-chat-menu", {
     html() {
         // const replyURLbase = `https://anonymouspost.xjtu.live/xjtumen-custom-api/handle-reply-to-topic/`;
         // const replyURLbase = `http://127.0.0.1:7010/xjtumen-custom-api/handle-reply-to-topic/`;
-        const replyURLbase = `https://xjtu.live/xjtumen-custom-api/handle-reply-to-topic/`;
+        const replyURLbase = 'https://' + window.location.hostname + '/xjtumen-custom-api/handle-reply-to-topic/';
+
         let replyURL;
         let allowReply = false;
         // allowReply = this.siteSettings.requ`ire_login;
@@ -21,7 +22,7 @@ createWidget("anonymouspost-chat-menu", {
         try {
             var res = router.currentURL.match(/\/t\/(.*?)\/(\w+)/);
             if (res && res[2] > 0) {
-                replyURL = replyURLbase + window.location.hostname + "/" + res[2] + "/" +  document.title
+                replyURL = replyURLbase + window.location.hostname + "/" + res[2] + "/" + document.title
             } else {
                 allowReply = false;
                 replyURL = replyURLbase;

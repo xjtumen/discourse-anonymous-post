@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/discourse-replytotopic.iml" filepath="$PROJECT_DIR$/.idea/discourse-replytotopic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/discourse-anonymous-post.iml" filepath="$PROJECT_DIR$/.idea/discourse-anonymous-post.iml" />
     </modules>
   </component>
 </project>
