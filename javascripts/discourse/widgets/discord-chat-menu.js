@@ -8,8 +8,9 @@ createWidget("anonymouspost-chat-menu", {
     tagName: "div.anonymouspost-panel",
 
     html() {
-        const replyURLbase = `https://anonymouspost.xjtu.live/xjtumen-custom-api/handle-reply-to-topic/`;
+        // const replyURLbase = `https://anonymouspost.xjtu.live/xjtumen-custom-api/handle-reply-to-topic/`;
         // const replyURLbase = `http://127.0.0.1:7010/xjtumen-custom-api/handle-reply-to-topic/`;
+        const replyURLbase = `https://xjtu.live/xjtumen-custom-api/handle-reply-to-topic/`;
         let replyURL;
         let allowReply = false;
         // allowReply = this.siteSettings.requ`ire_login;
