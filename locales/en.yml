@@ -1,0 +1,5 @@
+en:
+  theme_metadata:
+    description: "Display a reply widget"
+  anonymouspost_widget:
+    title: "Reply to A Topic Anonymously"

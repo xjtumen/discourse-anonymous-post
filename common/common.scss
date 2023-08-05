@@ -1,0 +1,15 @@
+.anonymouspost-panel {
+  .panel-message {
+    &-type-warning {
+      background: var(--danger-low);
+      padding: 1rem;
+      color: var(--danger);
+      font-weight: bold;
+      .d-icon {
+        color: var(--danger);
+        font-size: 1.25rem;
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+}

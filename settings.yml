@@ -1,0 +1,30 @@
+require_login:
+  type: bool
+  default: false
+  description:
+    en: "Require users to be logged in to view the widget"
+minimum_trust_level:
+  type: integer
+  default: 0
+  description:
+    en: "The minimum trust level a user must have to view the widget. Note: the setting above (require_login) must be checked in order for this to work."
+require_staff:
+  type: bool
+  default: false
+  description:
+    en: "Require users to be staff (admins + moderators) to view the widget. Note: the setting above (require_login) must be checked in order for this to work."
+required_groups:
+  type: list
+  list_type: group
+  default: ""
+  description:
+    en: "Require users to be members of a set of predefined groups to see the widget. Note: the setting above (require_login) must be checked in order for this to work."
+theme:
+  type: enum
+  choices:
+    - light
+    - dark
+    - auto
+  default: light
+  description:
+    en: "The theme of the widget. Use auto to base the theme off your system theme"
