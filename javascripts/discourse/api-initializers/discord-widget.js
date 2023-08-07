@@ -1,5 +1,6 @@
 import {apiInitializer} from "discourse/lib/api";
 import User from "discourse/models/user";
+import DiscourseURL from "discourse/lib/url";
 
 export default apiInitializer("0.11.1", (api) => {
     // If login is required
@@ -30,11 +31,12 @@ export default apiInitializer("0.11.1", (api) => {
         }
     }
 
-    let res = window.location.href.match(/\/t\/(.*?)\/(\w+)/);
-    if (res && res[2] > 0) {
-    } else {
-        return;
-    }
+    // BUGGY: only show in topic page
+    // let res = window.location.href.match(/\/t\/(.*?)\/(\w+)/);
+    // if (res && res[2] > 0) {
+    // } else {
+    //     return;
+    // }
 
     api.decorateWidget("header-icons:before", (helper) => {
         const headerState = helper.widget.parentWidget.state;
@@ -55,36 +57,22 @@ export default apiInitializer("0.11.1", (api) => {
     });
 
     api.attachWidgetAction("header", "toggleanonymouspost", function () {
+        if (this.site.mobileView) {
+            const replyURLbase = 'https://' + window.location.hostname + '/xjtumen-custom-api/handle-reply-to-topic/';
+            let replyURL = replyURLbase;
+            try {
+                var res = window.location.href.match(/\/t\/(.*?)\/(\w+)/);
+                if (res && res[2] > 0) {
+                    replyURL = replyURLbase + window.location.hostname + "/" + res[2] + "/" + document.title;
+                }
+            } catch (e) {
+                replyURL = replyURLbase;
+            }
+            DiscourseURL.redirectAbsolute(replyURL);
+            return
+        }
+
         this.state.anonymouspostChatVisible = !this.state.anonymouspostChatVisible;
     });
-    const toggleAnonReplyToTopic = function() {
-        this.sendWidgetAction("toggleanonymouspost");
-        return res
-    };
-
-    const currentLocale = I18n.currentLocale();
-    if (!I18n.translations[currentLocale].js.composer) {
-        I18n.translations[currentLocale].js.composer = {};
-        I18n.translations["en"].js.composer = {};
-        I18n.translations["zh_CN"].js.composer = {};
-    }
-    I18n.translations["en"].js.anon_reply_to_topic_icon_text = "Reply Anonymously";
-    I18n.translations["zh_CN"].js.anon_reply_to_topic_icon_text = "匿名回复该话题";
-    I18n.translations[currentLocale].js.anon_reply_to_topic_icon_text = "Anonymously Reply";
-    let a = function (e) {
-        console.log(e);
-        return e.applySurround('<div data-theme="foo">\n\n', "\n\n</div>", "my_button_text");
-    }
-    api.registerTopicFooterButton({
-        id: "replytotopic-button",
-        icon: "reply",
-        title: "Reply Anonymously",
-        label: "anon_reply_to_topic_icon_text",
-        action(context) {
-            a
-        },
-
-        // action: this.toggleAnonReplyToTopic
-    })
 
 });

@@ -25,6 +25,6 @@ theme:
     - light
     - dark
     - auto
-  default: auto
+  default: light
   description:
     en: "The theme of the widget. Use auto to base the theme off your system theme"

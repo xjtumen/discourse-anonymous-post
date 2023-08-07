@@ -1,12 +1,12 @@
 .anonymouspost-panel {
   .panel-message {
     &-type-warning {
-      background: var(--danger-low);
+      background: var(--header_background);
       padding: 1rem;
-      color: var(--danger);
+      color: var(--primary);
       font-weight: bold;
       .d-icon {
-        color: var(--danger);
+        color: var(--secondary);
         font-size: 1.25rem;
         margin-bottom: 0.25rem;
       }
