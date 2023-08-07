@@ -8,15 +8,14 @@ createWidget("anonymouspost-chat-menu", {
     tagName: "div.anonymouspost-panel",
 
     html() {
-        // const replyURLbase = `http://127.0.0.1:7010/xjtumen-custom-api/handle-reply-to-topic/`;
-        const replyURLbase = 'https://' + window.location.hostname + '/xjtumen-custom-api/handle-reply-to-topic/';
+        const replyURLbase = 'https://' + window.location.hostname + '/xjtumen-custom-api/handle-reply-to-topic/'  + window.location.hostname + '/';
 
         let replyURL = replyURLbase;
 
         try {
             var res = window.location.href.match(/\/t\/(.*?)\/(\w+)/);
             if (res && res[2] > 0) {
-                replyURL = replyURLbase + window.location.hostname + "/" + res[2] + "/" + document.title;
+                replyURL = replyURLbase + res[2] + "/" + document.title;
             }
         } catch (e) {
             replyURL = replyURLbase;
