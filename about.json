@@ -1,9 +1,9 @@
 {
   "name": "Anonymous post Widget",
-  "version": 0.2,
+  "version": 0.3,
   "component": true,
   "license": "MIT",
-  "about_url": "https://github.com/",
+  "about_url": "https://github.com/xjtumen/discourse-anonymous-post",
   "about": "adds anonymous post functionality",
   "authors": ["github"]
 }

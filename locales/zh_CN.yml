@@ -1,0 +1,5 @@
+zh_CN:
+  theme_metadata:
+    description: "显示匿名回复小组件"
+  anonymouspost_widget:
+    title: "匿名回复该话题（可无需登录）"

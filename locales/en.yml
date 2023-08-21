@@ -2,4 +2,4 @@ en:
   theme_metadata:
     description: "Display a reply widget"
   anonymouspost_widget:
-    title: "Reply to A Topic Anonymously"
+    title: "reply to this topic anonymously (no login required)"
